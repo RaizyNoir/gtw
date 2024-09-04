@@ -96,6 +96,10 @@ st.write("Pilih gejala yang Anda alami:")
 symptoms_options = list(symptoms_dict.keys())
 selected_symptoms = st.multiselect("Gejala:", symptoms_options)
 
+# Variables to store results
+predicted_disease = None
+desc, pre, med, die, wrkout = None, None, None, None, None
+
 if st.button('Prediksi'):
     if selected_symptoms:
         predicted_disease = get_predicted_value(selected_symptoms)
