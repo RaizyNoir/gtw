@@ -110,37 +110,38 @@ if st.button('Prediksi'):
     else:
         st.write("Silakan pilih gejala terlebih dahulu.")
 
-if predicted_disease:
-    st.write("**Hasil Tersimpan:**", predicted_disease)  # Debugging line
+# Show additional information based on the stored values
+if st.session_state.predicted_disease:
+    st.write("**Hasil Tersimpan:**", st.session_state.predicted_disease)  # Debugging line
         
     if st.button('Tampilkan Tindakan Pencegahan'):
-        if pre:
+        if st.session_state.pre:
             st.write("**Tindakan Pencegahan:**")
-            for i, p in enumerate(pre, 1):
+            for i, p in enumerate(st.session_state.pre, 1):
                 st.write(f"{i}. {p}")
         else:
             st.write("Tindakan Pencegahan tidak tersedia.")
         
     if st.button('Tampilkan Obat-obatan'):
-        if med:
+        if st.session_state.med:
             st.write("**Obat-obatan:**")
-            for i, m in enumerate(med, 1):
+            for i, m in enumerate(st.session_state.med, 1):
                 st.write(f"{i}. {m}")
         else:
             st.write("Obat-obatan tidak tersedia.")
-            
+        
     if st.button('Tampilkan Diet'):
-        if die:
+        if st.session_state.die:
             st.write("**Diet:**")
-            for i, d in enumerate(die, 1):
+            for i, d in enumerate(st.session_state.die, 1):
                 st.write(f"{i}. {d}")
         else:
             st.write("Diet tidak tersedia.")
         
     if st.button('Tampilkan Latihan'):
-        if wrkout:
+        if st.session_state.wrkout:
             st.write("**Latihan:**")
-            for i, w in enumerate(wrkout, 1):
+            for i, w in enumerate(st.session_state.wrkout, 1):
                 st.write(f"{i}. {w}")
         else:
             st.write("Latihan tidak tersedia.")
