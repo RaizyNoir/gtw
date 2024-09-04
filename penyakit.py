@@ -106,24 +106,37 @@ if st.button('Prediksi'):
     else:
         st.write("Silakan pilih gejala terlebih dahulu.")
 
-# Show additional information based on the stored values
 if predicted_disease:
+    st.write("**Hasil Tersimpan:**", predicted_disease)  # Debugging line
+        
     if st.button('Tampilkan Tindakan Pencegahan'):
-        st.write("**Tindakan Pencegahan:**")
-        for i, p in enumerate(pre, 1):
-            st.write(f"{i}. {p}")
+        if pre:
+            st.write("**Tindakan Pencegahan:**")
+            for i, p in enumerate(pre, 1):
+                st.write(f"{i}. {p}")
+        else:
+            st.write("Tindakan Pencegahan tidak tersedia.")
         
     if st.button('Tampilkan Obat-obatan'):
-        st.write("**Obat-obatan:**")
-        for i, m in enumerate(med, 1):
-            st.write(f"{i}. {m}")
-        
+        if med:
+            st.write("**Obat-obatan:**")
+            for i, m in enumerate(med, 1):
+                st.write(f"{i}. {m}")
+        else:
+            st.write("Obat-obatan tidak tersedia.")
+            
     if st.button('Tampilkan Diet'):
-        st.write("**Diet:**")
-        for i, d in enumerate(die, 1):
-            st.write(f"{i}. {d}")
+        if die:
+            st.write("**Diet:**")
+            for i, d in enumerate(die, 1):
+                st.write(f"{i}. {d}")
+        else:
+            st.write("Diet tidak tersedia.")
         
     if st.button('Tampilkan Latihan'):
-        st.write("**Latihan:**")
-        for i, w in enumerate(wrkout, 1):
-            st.write(f"{i}. {w}")
+        if wrkout:
+            st.write("**Latihan:**")
+            for i, w in enumerate(wrkout, 1):
+                st.write(f"{i}. {w}")
+        else:
+            st.write("Latihan tidak tersedia.")
