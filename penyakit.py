@@ -99,22 +99,33 @@ selected_symptoms = st.multiselect("Gejala:", symptoms_options)
 if st.button('Prediksi'):
     if selected_symptoms:
         predicted_disease = get_predicted_value(selected_symptoms)
-
-        desc, pre, med, die, wrkout = helper(predicted_disease)
-
         st.write("**Penyakit yang Diprediksi:**", predicted_disease)
+        
+        desc, pre, med, die, wrkout = helper(predicted_disease)
         st.write("**Deskripsi:**", desc)
-        st.write("**Tindakan Pencegahan:**")
-        for i, p in enumerate(pre, 1):
-            st.write(f"{i}. {p}")
-        st.write("**Obat-obatan:**")
-        for i, m in enumerate(med, 1):
-            st.write(f"{i}. {m}")
-        st.write("**Diet:**")
-        for i, d in enumerate(die, 1):
-            st.write(f"{i}. {d}")
-        st.write("**Latihan:**")
-        for i, w in enumerate(wrkout, 1):
-            st.write(f"{i}. {w}")
+
+        if st.button('Tampilkan Tindakan Pencegahan'):
+            desc, pre, med, die, wrkout = helper(predicted_disease)
+            st.write("**Tindakan Pencegahan:**")
+            for i, p in enumerate(pre, 1):
+                st.write(f"{i}. {p}")
+        
+        if st.button('Tampilkan Obat-obatan'):
+            desc, pre, med, die, wrkout = helper(predicted_disease)
+            st.write("**Obat-obatan:**")
+            for i, m in enumerate(med, 1):
+                st.write(f"{i}. {m}")
+        
+        if st.button('Tampilkan Diet'):
+            desc, pre, med, die, wrkout = helper(predicted_disease)
+            st.write("**Diet:**")
+            for i, d in enumerate(die, 1):
+                st.write(f"{i}. {d}")
+        
+        if st.button('Tampilkan Latihan'):
+            desc, pre, med, die, wrkout = helper(predicted_disease)
+            st.write("**Latihan:**")
+            for i, w in enumerate(wrkout, 1):
+                st.write(f"{i}. {w}")
     else:
         st.write("Silakan pilih gejala terlebih dahulu.")
