@@ -100,32 +100,30 @@ if st.button('Prediksi'):
     if selected_symptoms:
         predicted_disease = get_predicted_value(selected_symptoms)
         st.write("**Penyakit yang Diprediksi:**", predicted_disease)
-        
         desc, pre, med, die, wrkout = helper(predicted_disease)
         st.write("**Deskripsi:**", desc)
-
-        if st.button('Tampilkan Tindakan Pencegahan'):
-            desc, pre, med, die, wrkout = helper(predicted_disease)
-            st.write("**Tindakan Pencegahan:**")
-            for i, p in enumerate(pre, 1):
-                st.write(f"{i}. {p}")
         
-        if st.button('Tampilkan Obat-obatan'):
-            desc, pre, med, die, wrkout = helper(predicted_disease)
-            st.write("**Obat-obatan:**")
-            for i, m in enumerate(med, 1):
-                st.write(f"{i}. {m}")
-        
-        if st.button('Tampilkan Diet'):
-            desc, pre, med, die, wrkout = helper(predicted_disease)
-            st.write("**Diet:**")
-            for i, d in enumerate(die, 1):
-                st.write(f"{i}. {d}")
-        
-        if st.button('Tampilkan Latihan'):
-            desc, pre, med, die, wrkout = helper(predicted_disease)
-            st.write("**Latihan:**")
-            for i, w in enumerate(wrkout, 1):
-                st.write(f"{i}. {w}")
     else:
         st.write("Silakan pilih gejala terlebih dahulu.")
+
+# Show additional information based on the stored values
+if predicted_disease:
+    if st.button('Tampilkan Tindakan Pencegahan'):
+        st.write("**Tindakan Pencegahan:**")
+        for i, p in enumerate(pre, 1):
+            st.write(f"{i}. {p}")
+        
+    if st.button('Tampilkan Obat-obatan'):
+        st.write("**Obat-obatan:**")
+        for i, m in enumerate(med, 1):
+            st.write(f"{i}. {m}")
+        
+    if st.button('Tampilkan Diet'):
+        st.write("**Diet:**")
+        for i, d in enumerate(die, 1):
+            st.write(f"{i}. {d}")
+        
+    if st.button('Tampilkan Latihan'):
+        st.write("**Latihan:**")
+        for i, w in enumerate(wrkout, 1):
+            st.write(f"{i}. {w}")
